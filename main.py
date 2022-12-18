@@ -77,10 +77,14 @@ def clear_frame(frame):
 def search_(win):
     def display(id, frm):
         clear_frame(frm)
-        data = search_id(id)
-        for i in cols:
-            Label(frm, text=f'{i} = {data[cols.index(i)]}', font=('none', 12), bg='#a2b9fc').grid(
-                column=0, rows=cols.index(i)+1, sticky='wn')
+        try:
+            data = search_id(id)
+            for i in cols:
+                Label(frm, text=f'{i} = {data[cols.index(i)]}', font=('none', 12), bg='#a2b9fc').grid(
+                    column=0, rows=cols.index(i)+1, sticky='wn')
+        
+        except IndexError:
+            Label(frm, text='ID not found', font=('none', 18, 'bold'), bg='#a2b9fc').pack()
 
     clear_frame(win)
     frm = Frame(win)
@@ -89,7 +93,7 @@ def search_(win):
     Button(win, text="Home", padx=20, pady=15, font=('none', 20, 'bold'),
            command=lambda: home(root), bg='#fafa90').grid(row=3, column=0, columnspan=3, pady=40)
     Label(win, text="Enter ID: ", font=('none', 20),
-          padx=5, bg='#a2b9fc').grid(row=0, column=0, pady=30)
+          padx=20, bg='#a2b9fc').grid(row=0, column=0, pady=30)
     id_ = Entry(win, width=17, justify=RIGHT, borderwidth=5, font=('none', 20))
     id_.grid(row=0, column=1)
     sea = Button(win, justify=LEFT, font=('none', 15), text="SEARCH",
@@ -126,10 +130,14 @@ def delete(win):
 def update(win):
     def display(frm, id, temp, typ, ups, comms, awds):
         clear_frame(frm)
-
-        change(id, temp, typ, ups, comms, awds)
-        Label(frm, text=f"ID-{id} UPDATED", font=('none',
-              19, 'bold'), padx=7, pady=7, bg='#a2b9fc').pack()
+        try:
+            change(id, temp, typ, ups, comms, awds)
+            Label(frm, text=f"ID-{id} UPDATED", font=('none',
+                19, 'bold'), padx=7, pady=7, bg='#a2b9fc').pack()
+        
+        except:
+            Label(frm, text=f"ERROR", font=('none',
+                19, 'bold'), padx=7, pady=7, bg='#a2b9fc').pack()            
 
     clear_frame(win)
     frm = Frame(win)
