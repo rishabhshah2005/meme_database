@@ -12,9 +12,7 @@ cur = con.cursor()
 # CREATING MAIN WINDOW
 root = Tk()
 root.configure(bg='#a2b9fc')
-# img = ImageTk.PhotoImage(Image.open("bg1.jpg"))  # PIL solution
-# lab = Label(root, image=img)
-# lab.place(x=0, y=0, relwidth=1, relheight=1)
+
 
 ##############################################################################################################
 
