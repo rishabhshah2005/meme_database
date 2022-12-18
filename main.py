@@ -12,7 +12,7 @@ cur = con.cursor()
 # CREATING MAIN WINDOW
 root = Tk()
 root.configure(bg='#a2b9fc')
-
+root.title("Meme Database management system")
 
 ##############################################################################################################
 
@@ -82,9 +82,10 @@ def search_(win):
             for i in cols:
                 Label(frm, text=f'{i} = {data[cols.index(i)]}', font=('none', 12), bg='#a2b9fc').grid(
                     column=0, rows=cols.index(i)+1, sticky='wn')
-        
+
         except IndexError:
-            Label(frm, text='ID not found', font=('none', 18, 'bold'), bg='#a2b9fc').pack()
+            Label(frm, text='ID not found', font=(
+                'none', 18, 'bold'), bg='#a2b9fc').pack()
 
     clear_frame(win)
     frm = Frame(win)
@@ -133,11 +134,11 @@ def update(win):
         try:
             change(id, temp, typ, ups, comms, awds)
             Label(frm, text=f"ID-{id} UPDATED", font=('none',
-                19, 'bold'), padx=7, pady=7, bg='#a2b9fc').pack()
-        
+                                                      19, 'bold'), padx=7, pady=7, bg='#a2b9fc').pack()
+
         except:
             Label(frm, text=f"ERROR", font=('none',
-                19, 'bold'), padx=7, pady=7, bg='#a2b9fc').pack()            
+                                            19, 'bold'), padx=7, pady=7, bg='#a2b9fc').pack()
 
     clear_frame(win)
     frm = Frame(win)
