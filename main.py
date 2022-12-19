@@ -9,10 +9,7 @@ con = sql.connect(host='localhost', user='root',
                   passwd='root', database='memes')
 cur = con.cursor()
 
-# CREATING MAIN WINDOW
-root = Tk()
-root.configure(bg='#a2b9fc')
-root.title("Meme Database management system")
+
 
 ##############################################################################################################
 
@@ -86,6 +83,10 @@ def search_(win):
         except IndexError:
             Label(frm, text='ID not found', font=(
                 'none', 18, 'bold'), bg='#a2b9fc').pack()
+        
+        except:
+            Label(frm, text='ERROR', font=(
+                'none', 22, 'bold'), bg='#a2b9fc').pack()
 
     clear_frame(win)
     frm = Frame(win)
@@ -279,6 +280,10 @@ def home(root):
     Label(root, text="Made by Rishabh Shah XII-A", pady=15, font=('none',
           15, 'bold'), bg='#a2b9fc').grid(row=4, column=0, columnspan=2, pady=10)
 
+# CREATING MAIN WINDOW
+root = Tk()
+root.configure(bg='#a2b9fc')
+root.title("Meme Database management system")
 
 home(root)
 
